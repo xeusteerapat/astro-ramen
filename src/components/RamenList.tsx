@@ -1,7 +1,8 @@
-import { createSignal, onCleanup, For } from 'solid-js';
-import type { JSX, Component } from 'solid-js';
+import type { Component } from 'solid-js';
+import { For } from 'solid-js';
+import type { RootRamen } from '../types/ramens';
 
-const RamenList: Component = props => {
+const RamenList: Component<RootRamen> = props => {
   return (
     <div>
       <For each={props.ramens.shops} fallback={<div>Loading...</div>}>

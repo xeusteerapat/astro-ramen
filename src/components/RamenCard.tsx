@@ -1,10 +1,17 @@
-import { createSignal, onCleanup } from 'solid-js';
-import type { JSX, Component } from 'solid-js';
+import type { Component } from 'solid-js';
+import type { RamenCardProps } from '../types/ramens';
 
-const RamenList: Component = () => {
+const RamenList: Component<RamenCardProps> = props => {
+  console.log('props ramen card', props);
   return (
     <div>
-      <h1>Hi, Ramen</h1>
+      <h2>{props.ramen.name}</h2>
+      <img
+        src={props.ramen.photos[0].url}
+        alt={props.ramen.photos[0].name}
+        width='400px'
+        height='auto'
+      />
     </div>
   );
 };
