@@ -1,12 +1,12 @@
-import { createSignal, onCleanup } from 'solid-js';
+import { createSignal, onCleanup, For } from 'solid-js';
 import type { JSX, Component } from 'solid-js';
 
 const RamenList: Component = props => {
   return (
     <div>
-      {props.ramens.shops.map((shop: any) => {
-        return <li>{shop.name}</li>;
-      })}
+      <For each={props.ramens.shops} fallback={<div>Loading...</div>}>
+        {shop => <li>{shop.name}</li>}
+      </For>
     </div>
   );
 };
